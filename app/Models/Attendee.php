@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Attendee extends Model
 {
     use HasFactory;
+    // 允許批量的
+    protected $fillable = ['user_id'];
 
     public function user(): BelongsTo
     {

@@ -10,5 +10,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('events', EventController::class);
-Route::apiResource('event.attendees', AttendeeController::class)
-    ->scoped(['attendee' => 'event']);
+Route::apiResource('events.attendees', AttendeeController::class)
+    ->scoped()->except(['update']);
+
+// scoped(['attendee' => 'event'])本來有需要傳遞參數但是laravel會自動找到
